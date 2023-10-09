@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📝</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-4">
+        <h1 class="text-center">Ronan's Note App</h1>
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <input type="text" id="note-input" class="form-control mb-3" placeholder="Add a new note">
+                <div class="input-group mb-3">
+                    <select id="note-color" class="custom-select">
+                        <option value="primary">Blue</option>
+                        <option value="danger">Red</option>
+                        <option value="warning">Orange</option>
+                    </select>
+                    <div class="input-group-append">
+                        <button id="add-note" class="btn text-white">Add Note</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-4" id="note-container">
+            <!-- Notes will be displayed here -->
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

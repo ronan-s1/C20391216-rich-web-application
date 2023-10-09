@@ -1,0 +1,41 @@
+/* grid */
+.outer-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 25%);
+    grid-gap: 1px;
+    border: 1px solid black;
+}
+
+.grid-cell {
+    text-align: center;
+    border: 1px solid black;
+    background-color: rgb(156, 206, 131);
+}
+
+/* inner grid */
+.inner-grid {
+    display: grid;
+    border: 1px solid black;
+    /* 1fr so inner cells are equal length*/
+    grid-template-columns: repeat(4, 1fr); 
+}
+
+.inner-cell {
+    border: 1px solid black;
+    text-align: center;
+    background-color: rgb(118, 174, 193);
+}
+
+/* 2x2 */
+@media (max-width: 960px) {
+    .outer-grid, .inner-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* 4x1 */
+@media (max-width: 640px) {
+    .outer-grid, .inner-grid {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
