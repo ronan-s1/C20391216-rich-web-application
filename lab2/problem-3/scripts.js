@@ -21,6 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function displayUserInfo(userData) {
         if (userData.message == "Not Found") {
+            userReposContainer.innerHTML = "";
             userContainer.innerHTML = `
                 <div class="alert alert-danger">
                     No user found.
@@ -70,7 +71,7 @@ document.addEventListener("DOMContentLoaded", () => {
     function displayRepos(reposData) {
         const repoList = document.createElement("div");
         repoList.id = "reposList";
-        userReposContainer.innerHTML = ""; // Clear the previous content
+        userReposContainer.innerHTML = "";
         
         if (reposData.length > 0) {
             if (reposData.length > 5) {
