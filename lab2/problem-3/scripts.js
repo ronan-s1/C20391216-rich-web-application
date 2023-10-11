@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", () => {
                             <td>${userData.login || "N/A"}</td>
                         </tr>
                         <tr>
-                            <td><b>email</b></td>
+                            <td><b>Email</b></td>
                             <td>${userData.email || "N/A"}</td>
                         </tr>
                         <tr>
