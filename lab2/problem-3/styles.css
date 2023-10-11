@@ -54,12 +54,11 @@ table {
 }
 
 ::-webkit-scrollbar-track {
-    background: #ffffff00;
+    background-color:rgb(27,108,131);
+
 }
 
 ::-webkit-scrollbar-thumb {
     background: rgb(200,94,118);
     border-radius: 6px;
 }
-
-
