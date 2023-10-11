@@ -1,0 +1,65 @@
+.btn {
+    background-color: rgb(200,94,118) !important;
+    color: white !important;
+}
+
+.container-sm {
+    background-color: rgb(27,108,131);
+    max-width: 1000px !important;
+    border-radius: 30px;
+    margin-bottom: 40px;
+    padding: 40px !important;
+}
+
+.title {
+    color: rgb(244,186,146);
+    text-align: center;
+    margin-bottom: 30px !important;
+}
+
+body {
+    background-image: url("https://www.wowpatterns.com/assets/files/resource_images/colorful-abstract-neon-square-seamless-pattern.jpg");
+}
+
+.user-data-row {
+    margin-top: 40px !important;
+}
+
+table {
+    background-color: white;
+    margin-top: 20px;
+    width: 340px !important;
+    border-radius: 10px;
+}
+
+.user-avatar {
+    border: 5px solid rgb(200,94,118);
+    border-radius: 10px;
+}
+
+.user-info {
+    margin: 5px 0;
+    font-size: 18px;
+    color: white;
+}
+
+
+.scrollable-repo-list {
+    max-height: 560px;
+    overflow-y: auto;
+}
+
+::-webkit-scrollbar {
+    width: 5px; 
+}
+
+::-webkit-scrollbar-track {
+    background: #ffffff00;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgb(200,94,118);
+    border-radius: 6px;
+}
+
+
