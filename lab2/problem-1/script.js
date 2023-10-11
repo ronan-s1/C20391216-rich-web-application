@@ -1,4 +1,4 @@
-const contacts = [];
+const contacts = JSON.parse(localStorage.getItem("contacts")) || [];
 
 function addContact() {
     const nameInput = document.getElementById("name");
@@ -19,13 +19,13 @@ function addContact() {
     }
 
     if (!/^[A-Za-z\s]{1,20}$/.test(name)) {
-        errorDiv.textContent = "Name should contain only alphabets and spaces, up to 20 characters.";
+        errorDiv.textContent = "Name should contain only letters and spaces, up to 20 characters.";
         errorDiv.style.display = "block";
         return;
     }
 
     if (!/^\d{10}$/.test(mobile)) {
-        errorDiv.textContent = "Mobile should contain 10 digits.";
+        errorDiv.textContent = "Mobile number should contain 10 digits.";
         errorDiv.style.display = "block";
         return;
     }
@@ -37,14 +37,17 @@ function addContact() {
     }
 
     errorDiv.textContent = "";
-    
+
     const contact = {
         name: name,
         mobile: mobile,
-        email: email
+        email: email,
     };
 
+    // save contacts locally
     contacts.push(contact);
+    localStorage.setItem('contacts', JSON.stringify(contacts));
+
     updateTable();
     nameInput.value = "";
     mobileInput.value = "";
@@ -71,7 +74,7 @@ function sortTable(columnIndex) {
     const tbody = table.querySelector("tbody");
     const rows = Array.from(tbody.getElementsByTagName("tr"));
 
-    //sort the rows based on the name
+    // Sort the rows based on the name
     rows.sort((a, b) => {
         const nameA = a.getElementsByTagName("td")[columnIndex].textContent.toLowerCase();
         const nameB = b.getElementsByTagName("td")[columnIndex].textContent.toLowerCase();
@@ -83,16 +86,29 @@ function sortTable(columnIndex) {
         return nameB.localeCompare(nameA);
     });
 
-    //clear the existing rows
+    // Clear rows
     tbody.innerHTML = "";
 
-    //append the sorted rows back to the table
+    // Add the sorted rows back to the table
     rows.forEach(row => {
         tbody.appendChild(row);
     });
 
-    //toggle the sorting direction for the next click
+    // Change sorting direction and icon when clicked again
     isAscending = !isAscending;
+    updateSortIcon();
+}
+
+function updateSortIcon() {
+    const sortIcon = document.getElementById("sortIcon");
+    
+    if (isAscending) {
+        sortIcon.classList.remove("fa-arrow-down");
+        sortIcon.classList.add("fa-arrow-up");
+    } else {
+        sortIcon.classList.remove("fa-arrow-up");
+        sortIcon.classList.add("fa-arrow-down");
+    }
 }
 
 
@@ -127,3 +143,7 @@ function filterContacts() {
     }
 }
 
+//get contacts from localStorage when the page loads
+window.addEventListener("load", () => {
+    updateTable();
+});
