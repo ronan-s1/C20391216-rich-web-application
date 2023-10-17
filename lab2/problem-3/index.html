@@ -4,29 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <title>GitHub API</title>
 </head>
 <body>
-    <div class="container-sm mt-5">
+    <div class="container">
         <h1 class="title">Ronan's Github Search App</h1>
         <div class="row">
-            <div class="col-lg-7 col-md-8 col-sm-10 mx-auto">
-                <div class="input-group">
-                    <input type="text" id="search" placeholder="Username" class="form-control">
-                    <div class="input-group-append">
-                        <button id="search-button" class="btn" style="border-radius: 0 10px 10px 00px;">Search</button>
-                    </div>
+            <div class="large medium small">
+                <div class="search-box">
+                    <input type="text" id="search" placeholder="Username">
+                    <button id="search-button" class="btn" style="border-radius: 0 10px 10px 0px;">Search</button>
                 </div>
             </div>
         </div>
 
-        <div class="row user-data-row">
-            <div id="user-data" class="col-md-6 mx-auto">
+        <div class="user-data-row">
+            <div id="user-data" class="medium-2">
                   <!-- user data -->
             </div>
         
-            <div id="user-repos" class="col-md-6 mx-auto">
+            <div id="user-repos" class="medium-2">
                 <!-- user repos -->
             </div>
         </div>

@@ -23,14 +23,14 @@ document.addEventListener("DOMContentLoaded", () => {
         if (userData.message == "Not Found") {
             userReposContainer.innerHTML = "";
             userContainer.innerHTML = `
-                <div class="alert alert-danger">
+                <div class="error">
                     No user found.
                 </div>
             `;
         } else {
             userContainer.innerHTML = `
-                <img class="user-avatar" src="${userData.avatar_url}" alt="Avatar" width="340px">
-                <table class="table table-striped table-borderless">
+                <img class="user-avatar" src="${userData.avatar_url}" alt="Avatar">
+                <table class="table">
                     <tbody>
                         <tr>
                             <td><b>Name</b></td>
@@ -80,20 +80,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
             reposData.forEach((repo) => {
                 const repoCard = document.createElement("div");
-                repoCard.className = "card mb-3";
+                repoCard.className = "card";
                 repoCard.innerHTML = `
-                    <div class="card-body">
-                        <h5 class="card-title">${repo.name}</h5>
-                        <p class="card-text">${repo.description || "No description available."}</p>
-                        <a href="${repo.html_url}" target="_blank" class="btn">View on GitHub</a>
-                    </div>
+                    <h2 class="card-title">${repo.name}</h2>
+                    <p class="card-text">${repo.description || "No description available."}</p>
+                    <a href="${repo.html_url}" target="_blank" class="btn">View on GitHub</a>
                 `;
                 repoList.appendChild(repoCard);
             });
 
             userReposContainer.appendChild(repoList);
         } else {
-            userReposContainer.innerHTML = "<div class='alert alert-danger'>No repositories found.</div>";
+            userReposContainer.innerHTML = "<div class='error'>No repositories found.</div>";
         }
     }
 });
