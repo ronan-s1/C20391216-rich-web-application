@@ -84,7 +84,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 repoCard.innerHTML = `
                     <h2 class="card-title">${repo.name}</h2>
                     <p class="card-text">${repo.description || "No description available."}</p>
-                    <a href="${repo.html_url}" target="_blank" class="btn">View on GitHub</a>
+                    <a href="${repo.html_url}" target="_blank" class="btn">See Repository</a>
                 `;
                 repoList.appendChild(repoCard);
             });
