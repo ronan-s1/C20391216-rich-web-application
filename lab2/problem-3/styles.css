@@ -128,6 +128,7 @@ text-align: center;
 }
 
 .card {
+    overflow-wrap: break-word;
     background-color: #edfbff;
     border: 1px solid rgb(200,94,118);
     padding: 20px;
