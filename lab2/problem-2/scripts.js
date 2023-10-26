@@ -25,14 +25,14 @@ async function showWordFrequencyMap() {
     const posts = await response.json();
 
     const bodyText = posts.map(post => post.body);
-    const words = bodyText.join(" ").split(" ")
+    const words = bodyText.join(" ").split(/\s+/); // split by all whitespace characters
 
     const wordFrequencyMap = words.reduce((frequencyMap, word) => {
         frequencyMap[word] = (frequencyMap[word] || 0) + 1;
         return frequencyMap;
     }, {});
 
-    console.log(wordFrequencyMap)
+    console.log(wordFrequencyMap);
 
     const wordFrequencyResult = document.getElementById("wordFrequencyResult");
     wordFrequencyResult.textContent = JSON.stringify(wordFrequencyMap, null, 2);
