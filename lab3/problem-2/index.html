@@ -1,0 +1,43 @@
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>⏰</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-4">
+        <div class="row main-top">
+            <div class="col-md-4 offset-md-4">
+                <div class="text-center">
+                    <div class="form-row align-items-center">
+                        <div class="col">
+                            <input type="number" id="input-hours" class="form-control" placeholder="h">
+                        </div>
+                        <div class="col-auto colons">:</div>
+                        <div class="col">
+                            <input type="number" id="input-minutes" class="form-control" placeholder="m">
+                        </div>
+                        <div class="col-auto colons">:</div>
+                        <div class="col">
+                            <input type="number" id="input-seconds" class="form-control" placeholder="s">
+                        </div>
+                    </div>
+                    <button id="start-timer" class="btn btn-secondary mt-4">▷ Start Countdown</button>
+                </div>
+                <div id="timer" class="mt-4 text-center">
+                    <div class="time-left">
+                        <span id="hours">00</span> : <span id="minutes">00</span> : <span id="seconds">00</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/rxjs/7.8.1/rxjs.umd.min.js" integrity="sha512-D9LDs8YUUVa4V9Gl4Zb+xqRAc7RCzooR3+zzebgK2RMu/KU+dh90pbjEEMzPiSyRSGbSp9j1pZnrO4joGa5WEg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="scripts.js"></script>
+</body>
+</html>

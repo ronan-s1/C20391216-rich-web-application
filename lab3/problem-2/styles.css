@@ -1,0 +1,23 @@
+body {
+    background-color: #e4e4e4 !important;
+}
+
+.colons {
+    font-weight: bolder;
+    font-size: 18px;
+}
+
+.main-top {
+    margin-top: 80px !important;
+}
+
+#start-timer {
+    text-transform: uppercase;
+    font-size: 15px;
+    margin-top: 60px;
+    letter-spacing: 2px;
+}
+
+.time-left {
+    font-size: 40px;
+}
