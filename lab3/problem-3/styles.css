@@ -1,0 +1,25 @@
+@import url("https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&family=Courgette&family=Pacifico&display=swap");
+
+body {
+    background-image: url("https://i.pinimg.com/736x/33/af/27/33af27f64486789a656987a03912e470.jpg");
+}
+
+.container {
+    background-color: rgba(192, 213, 217, 0.91);
+    padding: 30px;
+    border-radius: 25px;
+    margin-top: 40px !important;
+}
+
+#add-note, #add-child {
+    background-color: rgb(126, 127, 127);
+}
+
+h1 {
+    margin-bottom: 35px !important;
+    font-family: "Pacifico", cursive;
+}
+
+.card {
+    margin: 9px;
+}
