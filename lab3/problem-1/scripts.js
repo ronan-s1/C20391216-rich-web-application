@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
     const { fromEvent } = rxjs;
-    const { map, filter } = rxjs.operators;
+    const { map, filter, tap } = rxjs.operators;
 
     const noteInput = document.getElementById("note-input");
     const noteColorSelect = document.getElementById("note-color");
@@ -9,19 +9,20 @@ document.addEventListener("DOMContentLoaded", function () {
 
     loadNotes();
 
+    // create an observable when add note button is clicked
     const addNoteClick$ = fromEvent(addNoteBtn, 'click');
-
     addNoteClick$.pipe(
         map(() => ({
             text: noteInput.value.trim(),
             color: noteColorSelect.value
         })),
-        filter(note => note.text !== "")
-    ).subscribe(note => {
-        addNoteToContainer(note.text, note.color);
-        noteInput.value = "";
-        saveNotes();
-    });
+        filter(note => note.text !== ""),   
+        tap(note => {
+            addNoteToContainer(note.text, note.color);
+            noteInput.value = "";
+            saveNotes();
+        })
+    ).subscribe();
 
     function addNoteToContainer(noteText, color) {
         const noteCard = document.createElement("div");
@@ -37,21 +38,29 @@ document.addEventListener("DOMContentLoaded", function () {
         const editBtn = document.createElement("button");
         editBtn.className = "btn btn-light btn-sm mr-2";
         editBtn.textContent = "Edit";
-        fromEvent(editBtn, 'click').subscribe(() => {
-            const updatedNoteText = prompt("Edit your note:", noteText);
-            if (updatedNoteText !== null) {
-                noteTextElement.textContent = updatedNoteText;
-                saveNotes();
-            }
-        });
+
+        const editClick$ = fromEvent(editBtn, 'click');
+        editClick$.pipe(
+            tap(() => {
+                const updatedNoteText = prompt("Edit your note:", noteText);
+                if (updatedNoteText !== null) {
+                    noteTextElement.textContent = updatedNoteText;
+                    saveNotes();
+                }
+            })
+        ).subscribe();
 
         const deleteBtn = document.createElement("button");
         deleteBtn.className = "btn btn-light btn-sm";
         deleteBtn.textContent = "Delete";
-        fromEvent(deleteBtn, 'click').subscribe(() => {
-            noteContainer.removeChild(noteCard);
-            saveNotes();
-        });
+
+        const deleteClick$ = fromEvent(deleteBtn, 'click');
+        deleteClick$.pipe(
+            tap(() => {
+                noteContainer.removeChild(noteCard);
+                saveNotes();
+            })
+        ).subscribe();
 
         noteCardBody.appendChild(noteTextElement);
         noteCardBody.appendChild(editBtn);
