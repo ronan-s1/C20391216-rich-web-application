@@ -12,17 +12,20 @@ document.addEventListener("DOMContentLoaded", function () {
     // create an observable when add note button is clicked
     const addNoteClick$ = fromEvent(addNoteBtn, 'click');
     addNoteClick$.pipe(
+        // call back to change the text and colour
         map(() => ({
             text: noteInput.value.trim(),
             color: noteColorSelect.value
         })),
+        // filter out events with empty strings
         filter(note => note.text !== ""),   
+        // save note and clear input
         tap(note => {
             addNoteToContainer(note.text, note.color);
             noteInput.value = "";
             saveNotes();
         })
-    ).subscribe();
+    ).subscribe(); // This is where the observable is triggered and pipeline is executed
 
     function addNoteToContainer(noteText, color) {
         const noteCard = document.createElement("div");
