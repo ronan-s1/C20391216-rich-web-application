@@ -114,8 +114,6 @@ function App() {
                             >
                                 Add Note
                             </button>
-                        </div>
-                        <div className="input-group-append">
                             <button
                                 className="cat-fact-button btn text-white"
                                 onClick={fetchCatFact}
