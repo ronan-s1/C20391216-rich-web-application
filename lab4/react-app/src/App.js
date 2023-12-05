@@ -6,6 +6,7 @@ function App() {
     const [notes, setNotes] = useState([]);
     const [noteText, setNoteText] = useState('');
     const [selectedColor, setSelectedColor] = useState('primary');
+    const [isRecording, setIsRecording] = useState(false);
 
     useEffect(() => {
         loadNotes();
@@ -64,6 +65,26 @@ function App() {
         }
     };
 
+    const startRecognition = () => {
+        const recognition = new window.webkitSpeechRecognition(); // For Safari
+        recognition.lang = 'en-UK';
+
+        recognition.onstart = () => {
+            setIsRecording(true);
+        };
+
+        recognition.onresult = (event) => {
+            const transcript = event.results[0][0].transcript;
+            setNoteText((prevText) => prevText + transcript);
+        };
+
+        recognition.onend = () => {
+            setIsRecording(false);
+        };
+
+        recognition.start();
+    };
+
     return (
         <div className="container mt-4">
             <h1 className="text-center">React Note App</h1>
@@ -100,6 +121,12 @@ function App() {
                                 onClick={fetchCatFact}
                             >
                                 Cat Fact
+                            </button>
+                            <button
+                                className={`voice-recognition-button btn text-white ${isRecording ? 'recording' : ''}`}
+                                onClick={startRecognition}
+                            >
+                                {isRecording ? 'Stop Recording' : 'Start Recording'}
                             </button>
                         </div>
                     </div>
